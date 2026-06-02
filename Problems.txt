@@ -2,4 +2,3 @@
 2. Date Parsing 
 3. Login ID Password User acc creation 
 4. Location Based Logic
-5. This is an Advice: Dont use flash lite even if required 
