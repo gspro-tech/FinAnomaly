@@ -1,0 +1,431 @@
+.appWrapper {
+  min-height: 100vh;
+  background-color: var(--color-slate-950);
+  color: var(--color-slate-100);
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  width: 100%;
+  background-color: var(--color-slate-900);
+  border-bottom: 1px solid var(--color-slate-700); /* Fixed from border-b */
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.brandGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logoBox {
+  background-color: var(--color-indigo-600);
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.logoBox:hover {
+  transform: scale(1.05);
+}
+
+.titleMain {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: -0.025em;
+}
+
+.titleSub {
+  color: var(--color-indigo-400);
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 9px;
+  color: var(--color-slate-400);
+  font-family: monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.controlsGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.sliderContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: var(--color-slate-900);
+  border: 1px solid var(--color-slate-700);
+  border-radius: 0.75rem;
+  padding: 0.5rem 1rem;
+}
+
+.sliderLabelBlock {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--color-slate-400);
+}
+
+.sliderLabelText {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-slate-500);
+}
+
+.rangeInput {
+  width: 9rem;
+  height: 6px;
+  background: var(--color-slate-700);
+  border-radius: 8px;
+  appearance: none;
+  cursor: pointer;
+}
+
+.rangeInput::-webkit-slider-thumb {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-indigo-600);
+  transition: transform 0.1s ease-in-out;
+}
+
+.rangeInput::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.budgetValueDisplay {
+  font-family: monospace;
+  font-size: 0.75rem;
+  font-weight: 900;
+  color: var(--color-slate-300);
+  min-width: 60px; /* Fixed from min-w */
+  text-align: right;
+}
+
+.mainContent {
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.emptyState {
+  width: 100%;
+  text-align: center;
+  padding: 11rem 0;
+  background-color: var(--color-slate-900);
+  border-radius: 1rem;
+  border: 2px dashed var(--color-slate-700);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s ease;
+}
+
+.emptyState:hover {
+  border-color: var(--color-indigo-600);
+}
+
+.emptyIconWrapper {
+  padding: 1rem;
+  background-color: var(--color-indigo-950);
+  color: var(--color-indigo-400);
+  border-radius: 50%;
+  margin-bottom: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+.emptyState:hover .emptyIconWrapper {
+  transform: scale(1.1);
+}
+
+.emptyTitle {
+  margin: 0;
+  color: var(--color-slate-300);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.emptyDesc {
+  margin: 0.25rem 0 0 0;
+  font-size: 0.75rem;
+  color: var(--color-slate-500);
+  max-width: 20rem; /* Fixed from max-w */
+}
+
+.panelCard {
+  width: 100%;
+  background-color: var(--color-slate-900);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid var(--color-slate-700);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.panelHeaderRow {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-slate-700);
+  padding-bottom: 1rem;
+}
+
+.panelTitleBlock {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.statusIconContainer {
+  padding: 0.625rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.statusIconContainer.riskActive {
+  background-color: var(--color-rose-950);
+  color: var(--color-rose-400);
+  transform: scale(1.05);
+}
+
+.statusIconContainer.riskClean {
+  background-color: var(--color-emerald-950);
+  color: var(--color-emerald-400);
+}
+
+.panelTitleText {
+  margin: 0;
+  font-weight: 900;
+  color: white;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.panelSubtitleText {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--color-slate-400);
+  font-weight: 500;
+}
+
+.exportButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-emerald-600);
+  color: white;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.exportButton:hover {
+  background-color: var(--color-emerald-700);
+  transform: translateY(-1px);
+}
+
+.loaderBlock {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem 1rem;
+  background-color: var(--color-slate-950);
+  border-radius: 0.75rem;
+  color: var(--color-slate-400);
+  font-family: monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 1px solid var(--color-slate-700);
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+  color: var(--color-indigo-400);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .5; }
+}
+
+.pulseText {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.layoutGrid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .layoutGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.chartColumn {
+  grid-column: span 1 / span 1;
+}
+
+@media (min-width: 1024px) {
+  .chartColumn {
+    grid-column: span 2 / span 2;
+  }
+}
+
+.sidebarCard {
+  background-color: var(--color-slate-900);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid var(--color-slate-700);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebarMetaInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.policyTag {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: var(--color-indigo-400);
+  text-transform: uppercase;
+  background-color: rgba(30, 27, 75, 0.5);
+  padding: 0.25rem 0.625rem;
+  border-radius: 0.375rem;
+  align-self: flex-start;
+}
+
+.sidebarTitle {
+  margin: 0.5rem 0 0 0;
+  font-weight: 900;
+  color: white;
+  font-size: 1rem;
+}
+
+.sidebarDesc {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--color-slate-400);
+  line-height: 1.6;
+}
+
+.complianceBadge {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: monospace;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid transparent;
+}
+
+.complianceBadge.compliant {
+  background-color: rgba(6, 78, 59, 0.4);
+  border-color: var(--color-emerald-800);
+  color: var(--color-emerald-400);
+}
+
+.complianceBadge.breached {
+  background-color: rgba(76, 5, 30, 0.4);
+  border-color: var(--color-rose-800);
+  color: var(--color-rose-400);
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.tableContainerCard {
+  width: 100%;
+  background-color: var(--color-slate-900);
+  border-radius: 1rem;
+  border: 1px solid var(--color-slate-700);
+  overflow: hidden;
+}
+
+.tableSubheader {
+  padding: 1.25rem;
+  border-bottom: 1px solid var(--color-slate-700);
+  background-color: rgba(15, 23, 42, 0.4);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tablePanelTitle {
+  margin: 0;
+  font-weight: 900;
+  color: white;
+  font-size: 0.875rem;
+}
+
+.tablePanelDesc {
+  margin: 0.125rem 0 0 0;
+  font-size: 10px;
+  color: var(--color-slate-400);
+  font-family: monospace;
+}
+
+.itemCounter {
+  font-size: 10px;
+  font-family: monospace;
+  background-color: var(--color-slate-950);
+  border: 1px solid var(--color-slate-700);
+  padding: 0.25rem 0.625rem;
+  border-radius: 0.5rem;
+  color: var(--color-slate-400);
+  font-weight: 700;
+}

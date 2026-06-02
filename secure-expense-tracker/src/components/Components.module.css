@@ -1,0 +1,219 @@
+.cardGrid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .cardGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.summaryCard {
+  background-color: var(--color-slate-900);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid var(--color-slate-700);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.textGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.metricLabel {
+  margin: 0;
+  font-size: 10px;
+  font-weight: 900;
+  color: var(--color-slate-500);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: monospace;
+}
+
+.metricValue {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 900;
+  font-family: monospace;
+  letter-spacing: -0.02em;
+}
+
+.iconWrapper {
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+}
+
+.cleanTextAlert {
+  font-size: 0.75rem;
+  color: var(--color-emerald-400);
+  background-color: rgba(6, 78, 59, 0.3);
+  border: 1px solid var(--color-emerald-700);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  font-family: monospace;
+}
+
+.fraudCardsGrid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .fraudCardsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1200px) {
+  .fraudCardsGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.fraudCardItem {
+  padding: 1.25rem;
+  border-radius: 1rem;
+  border: 1px solid var(--color-rose-800);
+  background-color: rgba(76, 5, 30, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.fraudCardTop {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fraudToken {
+  font-size: 10px;
+  font-family: monospace;
+  font-weight: 700;
+  background-color: var(--color-slate-950);
+  border: 1px solid var(--color-rose-800);
+  color: var(--color-rose-400);
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.375rem;
+}
+
+.fraudAmountText {
+  font-weight: 900;
+  color: var(--color-rose-400);
+  font-size: 0.875rem;
+  font-family: monospace;
+}
+
+.fraudVendorName {
+  margin: 0;
+  font-weight: 800;
+  color: white;
+  font-size: 0.75rem;
+}
+
+.fraudReasonText {
+  margin: 0;
+  font-size: 10px;
+  color: var(--color-slate-400);
+  font-weight: 500;
+  line-height: 1.5;
+  font-family: monospace;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.mainTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableHeaderCell {
+  padding: 0.75rem 1.5rem;
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-slate-500);
+  border-bottom: 1px solid var(--color-slate-700); /* Fixed from border-b */
+}
+
+.tableRow {
+  border-bottom: 1px solid var(--color-slate-700);
+}
+
+.tableRow:hover {
+  background-color: rgba(71, 85, 105, 0.1) !important;
+}
+
+.tableCell {
+  padding: 1rem 1.5rem;
+  font-size: 0.75rem;
+}
+
+.badgeRowFlex {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.pillBadge {
+  display: inline-flex; /* Fixed from inline-flex property string error */
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 900;
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 10px;
+  letter-spacing: 0.02em;
+}
+
+.pillBadge.budgetLimit {
+  background-color: var(--color-amber-950);
+  color: var(--color-amber-400);
+  border: 1px solid var(--color-amber-800);
+}
+
+.pillBadge.aiRisk {
+  background-color: var(--color-rose-950);
+  color: var(--color-rose-400);
+  border: 1px solid var(--color-rose-800);
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.uploadButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-indigo-600);
+  color: white;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.uploadButton:hover {
+  background-color: var(--color-indigo-700);
+  transform: translateY(-1px);
+}

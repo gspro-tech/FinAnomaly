@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Orchestration Control Console</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <div id="login-container">
+    <h2>Access Console</h2>
+    <p class="subtitle">AI Orchestration Microservice System</p>
+    <div class="input-group">
+      <label>Access Token Key</label>
+      <input type="password" id="token-input" placeholder="••••••••••••" autocomplete="current-password">
+    </div>
+    <button onclick="attemptLogin()">Initialize Connection</button>
+    <div class="error-msg" id="login-err">Invalid security gateway initialization key.</div>
+  </div>
+
+  <div id="dashboard-container">
+    <div class="dash-header">
+      <div class="dash-title">
+        <div class="status-dot"></div>
+        <span>LOCAL PROTOCOL ENGINE CORE</span>
+      </div>
+      <button class="logout-btn" onclick="logout()">Disconnect</button>
+    </div>
+    <div class="terminal-window" id="terminal">
+      </div>
+    <div class="dash-footer">
+      <span id="sync-status">Telemetry Status: Synchronized</span>
+      <span>Auto-refreshing: Active (5s cycles)</span>
+    </div>
+  </div>
+
+  <script>
+    const PASSPHRASE = "admin"; 
+
+    if(sessionStorage.getItem("authenticated") === "true") {
+      showDashboard();
+    }
+
+    function attemptLogin() {
+      const entry = document.getElementById("token-input").value;
+      if(entry === PASSPHRASE) {
+        sessionStorage.setItem("authenticated", "true");
+        showDashboard();
+      } else {
+        const err = document.getElementById("login-err");
+        err.style.display = "block";
+        document.getElementById("token-input").value = "";
+      }
+    }
+
+    function showDashboard() {
+      document.getElementById("login-container").style.display = "none";
+      const dash = document.getElementById("dashboard-container");
+      dash.style.display = "flex";
+      fetchLogs();
+      setInterval(fetchLogs, 5000); 
+    }
+
+    function logout() {
+      sessionStorage.removeItem("authenticated");
+      window.location.reload();
+    }
+
+    async function fetchLogs() {
+      const syncStatus = document.getElementById("sync-status");
+      try {
+        syncStatus.innerText = "Telemetry Status: Polling Matrix...";
+        const response = await fetch('/api/logs');
+        const data = await response.json();
+        const terminal = document.getElementById("terminal");
+        
+        const isScrolledToBottom = terminal.scrollHeight - terminal.clientHeight <= terminal.scrollTop + 40;
+
+        terminal.innerHTML = data.logs.map(log => {
+          return `
+            <div class="log-line">
+              <span class="log-time">[${log.timestamp}]</span>
+              <span class="log-body msg-${log.type}">${escapeHtml(log.message)}</span>
+            </div>
+          `;
+        }).join('');
+
+        if (isScrolledToBottom) {
+          terminal.scrollTop = terminal.scrollHeight;
+        }
+        syncStatus.innerText = "Telemetry Status: Synchronized";
+      } catch (err) {
+        syncStatus.innerText = "Telemetry Status: Connection Offline";
+      }
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+    }
+  </script>
+</body>
+</html>

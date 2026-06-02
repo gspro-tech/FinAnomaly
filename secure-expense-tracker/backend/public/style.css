@@ -1,0 +1,48 @@
+:root {
+  --bg-dark: #0a0b10;
+  --panel-dark: #12131a;
+  --border-color: #242633;
+  --accent-neon: #00ff66;
+  --text-main: #e2e4e9;
+  --text-muted: #62677c;
+  --error-color: #ff4a4a;
+  --warn-color: #ffaa00;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
+body { background-color: var(--bg-dark); color: var(--text-main); display: flex; justify-content: center; align-items: center; min-height: 100vh; overflow: hidden; }
+
+/* Login Screen Design */
+#login-container { background: var(--panel-dark); border: 1px solid var(--border-color); width: 400px; padding: 40px; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); text-align: center; transition: all 0.4s ease; }
+h2 { font-size: 24px; margin-bottom: 8px; font-weight: 600; letter-spacing: -0.5px; }
+.subtitle { color: var(--text-muted); font-size: 14px; margin-bottom: 30px; }
+.input-group { text-align: left; margin-bottom: 20px; }
+label { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 8px; }
+input { width: 100%; background: #1a1b26; border: 1px solid var(--border-color); padding: 12px 16px; border-radius: 6px; color: #fff; font-size: 15px; outline: none; transition: border 0.2s; }
+input:focus { border-color: var(--accent-neon); }
+button { width: 100%; background: var(--accent-neon); color: #000; border: none; padding: 14px; border-radius: 6px; font-size: 15px; font-weight: 600; cursor: pointer; transition: transform 0.1s, opacity 0.2s; margin-top: 10px; }
+button:hover { opacity: 0.9; }
+button:active { transform: scale(0.98); }
+.error-msg { color: var(--error-color); font-size: 13px; margin-top: 12px; display: none; }
+
+/* Terminal Dashboard Design */
+#dashboard-container { display: none; width: 95vw; height: 90vh; background: var(--panel-dark); border: 1px solid var(--border-color); border-radius: 12px; flex-direction: column; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.6); }
+.dash-header { display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; border-bottom: 1px solid var(--border-color); background: #161722; }
+.dash-title { display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.status-dot { width: 8px; height: 8px; background: var(--accent-neon); border-radius: 50%; box-shadow: 0 0 8px var(--accent-neon); }
+.logout-btn { background: transparent; color: var(--text-muted); border: 1px solid var(--border-color); padding: 6px 14px; width: auto; font-size: 13px; margin: 0; }
+.logout-btn:hover { border-color: var(--error-color); color: var(--error-color); }
+
+.terminal-window { flex: 1; background: #07080c; padding: 20px; overflow-y: auto; font-family: 'Courier New', Courier, monospace; font-size: 14px; line-height: 1.6; display: flex; flex-direction: column; gap: 6px; }
+.log-line { display: flex; gap: 12px; align-items: flex-start; border-bottom: 1px solid #0f111a; padding-bottom: 4px; }
+.log-time { color: var(--text-muted); min-width: 75px; user-select: none; }
+.log-body { white-space: pre-wrap; word-break: break-all; }
+
+.type-info { color: #569cd6; }
+.type-warn { color: var(--warn-color); font-weight: bold; }
+.type-error { color: var(--error-color); font-weight: bold; }
+.msg-info { color: #c8d3f5; }
+.msg-warn { color: #ffca28; }
+.msg-error { color: #ff5370; }
+
+.dash-footer { padding: 10px 24px; background: #161722; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 12px; display: flex; justify-content: space-between; }
